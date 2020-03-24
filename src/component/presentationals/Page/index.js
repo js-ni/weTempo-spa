@@ -22,14 +22,18 @@ const { Content } = Layout;
 
 const Page = ({ children }) => {
   return (
-    <Content>
+    <div>
       <PageHeader
         onBack={() => null}
         title="Page Title"
         subTitle="This is a page subTitle"
       />
-      {children}
-    </Content>
+      <Content style={{ padding: 24 }}>
+        <div style={{ padding: 24, minHeight: 360, background: "white" }}>
+          {children}
+        </div>
+      </Content>
+    </div>
   );
 };
 

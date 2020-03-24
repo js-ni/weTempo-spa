@@ -28,7 +28,7 @@ const App = () => {
   return (
     <Layouts>
       <Page>
-        <p>Content for each view</p>
+        <p>Content for each partial view</p>
       </Page>
     </Layouts>
   );
