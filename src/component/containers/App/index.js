@@ -12,6 +12,7 @@
 
 //#region lib
 import React from "react";
+import { Route } from "react-router-dom";
 //#endregion
 //#region styles
 import "antd/dist/antd.css";
@@ -28,6 +29,7 @@ const App = () => {
   return (
     <Layouts>
       <Page>
+        <Route></Route>
         <p>Content for each partial view</p>
       </Page>
     </Layouts>
