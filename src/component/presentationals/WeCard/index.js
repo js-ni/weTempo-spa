@@ -15,6 +15,8 @@ import { Card, Avatar } from "antd";
 import PropTypes from "prop-types";
 //#endregion
 //#region assets
+import placeholderImg from "../../../assets/img/placeholder.png";
+import placeholderProfile from "../../../assets/img/placeholder-profile.png";
 //#endregion
 
 const { Meta } = Card;
@@ -23,18 +25,11 @@ const WeSearch = () => {
   return (
     <Card
       style={{ width: 300 }}
-      cover={
-        <img
-          alt="example"
-          src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-        />
-      }
+      cover={<img alt="example" src={placeholderImg} />}
       actions={[]}
     >
       <Meta
-        avatar={
-          <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-        }
+        avatar={<Avatar src={placeholderProfile} />}
         title="Card title"
         description="This is the description"
       />

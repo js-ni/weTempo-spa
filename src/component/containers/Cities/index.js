@@ -14,18 +14,23 @@
 import React from "react";
 // import PropTypes from "prop-types";
 //#endregion
+//#region antd
+import { Row, Col } from "antd";
+//#endregion
 //#region components
 import { WeSearch, WeCard } from "../../presentationals";
 //#endregion
 
 const Cities = () => {
   return (
-    <>
-      <WeSearch />
-      <div>
+    <Row>
+      <Col span={24}>
+        <WeSearch />
+      </Col>
+      <Col span={24}>
         <WeCard />
-      </div>
-    </>
+      </Col>
+    </Row>
   );
 };
 
