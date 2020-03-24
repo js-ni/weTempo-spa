@@ -15,7 +15,7 @@ import React from "react";
 // import PropTypes from "prop-types";
 //#endregion
 //#region components
-import { WeSearch } from "../../presentationals";
+import { WeSearch, WeCard } from "../../presentationals";
 //#endregion
 
 const Cities = () => {
@@ -23,7 +23,7 @@ const Cities = () => {
     <>
       <WeSearch />
       <div>
-        <p>This the city partial view</p>
+        <WeCard />
       </div>
     </>
   );

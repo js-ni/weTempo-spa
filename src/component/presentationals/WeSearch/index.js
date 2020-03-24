@@ -1,7 +1,7 @@
 /**
  * @file components/presentationals/WeSearch/index.js
  * @name Component/Presentational/WeSearch
- * @classdesc Partial page container for each partial view
+ * @classdesc Component for search context
  * @memberof Component/Presentationals
  * @since v1.0.0
  * @author boykland/clenondavis <clenondavis@outlook.com>

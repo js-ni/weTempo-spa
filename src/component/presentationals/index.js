@@ -9,6 +9,7 @@
 //#region component
 import WePage from "./WePage";
 import WeSearch from "./WeSearch";
+import WeCard from "./WeCard";
 //#endregion
 
-export { WePage, WeSearch };
+export { WePage, WeSearch, WeCard };
