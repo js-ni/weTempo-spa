@@ -18,7 +18,7 @@ import placeholderImg from "../../../assets/img/placeholder.png";
 //#endregion
 //#region antd
 import { Card, Badge } from "antd";
-import { CommentOutlined } from "@ant-design/icons";
+import { CommentOutlined, NotificationOutlined } from "@ant-design/icons";
 //#endregion
 //#region components
 import { WeList } from "../";
@@ -29,12 +29,24 @@ const { Meta } = Card;
 const WeCard = () => {
   return (
     <Card
-      style={{ width: 300 }}
       cover={<img alt="example" src={placeholderImg} />}
       hoverable
       actions={[
-        <Badge count={25}>
-          <CommentOutlined />
+        <Badge
+          count={25}
+          onClick={() => {
+            console.log("click on comment");
+          }}
+        >
+          <CommentOutlined key="comment" />
+        </Badge>,
+        <Badge
+          count={0}
+          onClick={() => {
+            console.log("click on comment");
+          }}
+        >
+          <NotificationOutlined />
         </Badge>
       ]}
     >
