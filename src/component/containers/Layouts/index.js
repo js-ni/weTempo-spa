@@ -12,15 +12,43 @@
 
 //#region lib
 import React from "react";
-import { Layout } from "antd";
+import { Layout, Menu, Breadcrumb } from "antd";
 import PropTypes from "prop-types";
 //#endregion
+//#region assets
+import { DesktopOutlined } from "@ant-design/icons";
+//#endregion
 
-const Layouts = children => {
-  return <Layout>{children}</Layout>;
+const { Sider, Header, Content, Footer } = Layout;
+
+const Layouts = ({ children }) => {
+  return (
+    <Layout style={{ minHeight: "100vh" }}>
+      <Sider collapsible collapsed="true" onCollapse={() => {}} theme="light">
+        <Menu defaultSelectedKeys={["1"]} mode="inline">
+          <Menu.Item key="1">
+            <DesktopOutlined />
+            <span>Option 1</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>
+      <Layout>
+        <Content>
+          <Breadcrumb>
+            <Breadcrumb.Item>User</Breadcrumb.Item>
+            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+          </Breadcrumb>
+          {children}
+        </Content>
+        <Footer style={{ textAlign: "center" }}>
+          JsNi ©2018 Created by JsNi contributors
+        </Footer>
+      </Layout>
+    </Layout>
+  );
 };
 
 Layouts.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node
 };
 export default Layouts;
