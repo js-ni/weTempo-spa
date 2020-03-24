@@ -10,6 +10,7 @@
 import WePage from "./WePage";
 import WeSearch from "./WeSearch";
 import WeCard from "./WeCard";
+import WeList from "./WeList";
 //#endregion
 
-export { WePage, WeSearch, WeCard };
+export { WePage, WeSearch, WeCard, WeList };

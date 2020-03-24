@@ -11,33 +11,37 @@
 
 //#region lib
 import React from "react";
-import { Card, Avatar } from "antd";
 import PropTypes from "prop-types";
 //#endregion
 //#region assets
 import placeholderImg from "../../../assets/img/placeholder.png";
-import placeholderProfile from "../../../assets/img/placeholder-profile.png";
+//#endregion
+//#region antd
+import { Card, Badge } from "antd";
+import { CommentOutlined } from "@ant-design/icons";
+//#endregion
+//#region components
+import { WeList } from "../";
 //#endregion
 
 const { Meta } = Card;
 
-const WeSearch = () => {
+const WeCard = () => {
   return (
     <Card
       style={{ width: 300 }}
       cover={<img alt="example" src={placeholderImg} />}
-      actions={[]}
+      hoverable
+      actions={[
+        <Badge count={25}>
+          <CommentOutlined />
+        </Badge>
+      ]}
     >
-      <Meta
-        avatar={<Avatar src={placeholderProfile} />}
-        title="Card title"
-        description="This is the description"
-      />
+      <Meta title="City Name, Country Name" description={<WeList />} />
     </Card>
   );
 };
 
-WeSearch.propTypes = {
-  placeholder: PropTypes.string
-};
-export default WeSearch;
+WeCard.propTypes = {};
+export default WeCard;
