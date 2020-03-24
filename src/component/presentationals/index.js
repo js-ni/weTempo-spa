@@ -7,7 +7,8 @@
  */
 
 //#region component
-import Page from "./Page";
+import WePage from "./WePage";
+import WeSearch from "./WeSearch";
 //#endregion
 
-export { Page };
+export { WePage, WeSearch };

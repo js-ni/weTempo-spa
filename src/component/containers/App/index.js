@@ -15,23 +15,23 @@ import React from "react";
 import { Route } from "react-router-dom";
 //#endregion
 //#region styles
+// TODO: migrate to materializecss
 import "antd/dist/antd.css";
 import "./App.css";
 //#endregion
 //#region assets
 //#endregion
 //#region components
-import { Layouts } from "../";
-import { Page } from "../../presentationals";
+import { Layouts, Cities } from "../";
+import { WePage } from "../../presentationals";
 //#endregion
 
 const App = () => {
   return (
     <Layouts>
-      <Page>
-        <Route></Route>
-        <p>Content for each partial view</p>
-      </Page>
+      <WePage>
+        <Route path="/" component={Cities}></Route>
+      </WePage>
     </Layouts>
   );
 };

@@ -14,13 +14,17 @@
 import React from "react";
 // import PropTypes from "prop-types";
 //#endregion
-//#region assets
+//#region components
+import { WeSearch } from "../../presentationals";
 //#endregion
 
 const Cities = () => {
   return (
     <>
-      <p>This the city partial view</p>
+      <WeSearch />
+      <div>
+        <p>This the city partial view</p>
+      </div>
     </>
   );
 };

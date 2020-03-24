@@ -10,6 +10,7 @@
 //#region component
 import App from "./App";
 import Layouts from "./Layouts";
+import Cities from "./Cities";
 //#endregion
 
-export { App, Layouts };
+export { App, Layouts, Cities };

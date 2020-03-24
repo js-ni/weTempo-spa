@@ -1,13 +1,13 @@
 /**
- * @file components/presentationals/Page/index.js
- * @name Component/Presentational/Page
+ * @file components/presentationals/WePage/index.js
+ * @name Component/Presentational/WePage
  * @classdesc Partial page container for each partial view
  * @memberof Component/Presentationals
  * @since v1.0.0
  * @author boykland/clenondavis <clenondavis@outlook.com>
  * @example
- * <Page>
- * </Page>
+ * <wePage>
+ * </wePage>
  */
 
 //#region lib
@@ -20,7 +20,7 @@ import PropTypes from "prop-types";
 
 const { Content } = Layout;
 
-const Page = ({ children }) => {
+const WePage = ({ children }) => {
   return (
     <div>
       <PageHeader
@@ -37,7 +37,7 @@ const Page = ({ children }) => {
   );
 };
 
-Page.propTypes = {
+WePage.propTypes = {
   children: PropTypes.node
 };
-export default Page;
+export default WePage;
