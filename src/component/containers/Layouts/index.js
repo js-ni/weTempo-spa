@@ -1,47 +1,42 @@
 /**
  * @file components/containers/Layout/index.js
  * @name Component/Containers/Layout
- * @return {Object} List of global endpoint, define if is REST or GRAPHQL Schema
- * @classdesc Main component for app
+ * @classdesc Main Layout component for app
+ * @memberof Component/Containers
  * @since v1.0.0
  * @author boykland/clenondavis <clenondavis@outlook.com>
  * @example
- * <Layout>
- * </Layout>
+ * <Layouts>
+ * </Layouts>
  */
 
 //#region lib
 import React from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
+import { Layout, Menu } from "antd";
 import PropTypes from "prop-types";
 //#endregion
 //#region assets
-import { DesktopOutlined } from "@ant-design/icons";
+import { HomeTwoTone, Html5TwoTone, AppstoreTwoTone } from "@ant-design/icons";
 //#endregion
 
-const { Sider, Header, Content, Footer } = Layout;
+const { Sider, Footer } = Layout;
 
 const Layouts = ({ children }) => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider collapsible collapsed="true" onCollapse={() => {}} theme="light">
+      <Sider collapsed="true" onCollapse={() => {}} theme="light">
         <Menu defaultSelectedKeys={["1"]} mode="inline">
           <Menu.Item key="1">
-            <DesktopOutlined />
-            <span>Option 1</span>
+            <HomeTwoTone />
+            <span>Home</span>
           </Menu.Item>
         </Menu>
       </Sider>
       <Layout>
-        <Content>
-          <Breadcrumb>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          {children}
-        </Content>
-        <Footer style={{ textAlign: "center" }}>
-          JsNi ©2018 Created by JsNi contributors
+        {children}
+        <Footer>
+          JsNi ©2018 <Html5TwoTone /> <AppstoreTwoTone /> Created by JsNi
+          contributors
         </Footer>
       </Layout>
     </Layout>
