@@ -35,7 +35,6 @@ const Cities = () => {
     const citiesSvc = new CitiesSvc();
     citiesSvc.all().then(resp => {
       setCities(resp);
-      console.log(resp);
     });
   }, []);
 
