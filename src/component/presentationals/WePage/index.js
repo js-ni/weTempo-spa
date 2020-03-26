@@ -20,13 +20,13 @@ import PropTypes from "prop-types";
 
 const { Content } = Layout;
 
-const WePage = ({ children }) => {
+const WePage = ({ children, pageTitle, pageSubTitle }) => {
   return (
     <div>
       <PageHeader
         onBack={() => null}
-        title="Page Title"
-        subTitle="This is a page subTitle"
+        title={pageTitle}
+        subTitle={pageSubTitle}
       />
       <Content style={{ padding: 24 }}>
         <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
@@ -36,6 +36,8 @@ const WePage = ({ children }) => {
 };
 
 WePage.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  pageTitle: PropTypes.string.isRequired,
+  pageSubTitle: PropTypes.string
 };
 export default WePage;

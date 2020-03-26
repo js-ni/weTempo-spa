@@ -11,7 +11,7 @@
 
 //#region lib
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 //#endregion
 //#region assets
 import placeholderImg from "../../../assets/img/placeholder.png";
@@ -26,7 +26,7 @@ import { WeList } from "../";
 
 const { Meta } = Card;
 
-const WeCard = () => {
+const WeCard = ({ title, cardItem }) => {
   return (
     <Card
       cover={<img alt="example" src={placeholderImg} />}
@@ -50,10 +50,13 @@ const WeCard = () => {
         </Badge>
       ]}
     >
-      <Meta title="City Name, Country Name" description={<WeList />} />
+      <Meta title={title} description={<WeList modelItem={cardItem} />} />
     </Card>
   );
 };
 
-WeCard.propTypes = {};
+WeCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  cardItem: PropTypes.object
+};
 export default WeCard;

@@ -18,17 +18,14 @@ import React, { useEffect, useState } from "react";
 import { Row, Col } from "antd";
 //#endregion
 //#region components
-import { WeSearch, WeCard } from "../../presentationals";
+import { WeCard, WePage } from "../../presentationals";
 //#endregion
 //#region services
 import { CitiesSvc } from "../../../service/entities";
 //#endregion
 
 const Cities = () => {
-  const [citiesList, setCities] = useState({
-    coords: [],
-    winSpeeds: []
-  });
+  const [citiesList, setCities] = useState([]);
 
   useEffect(() => {
     // TODO: remove this call instance as well as singleton pattern are implemented
@@ -39,20 +36,20 @@ const Cities = () => {
   }, []);
 
   return (
-    <Row>
-      <Col span={24}>
-        <WeSearch />
-      </Col>
-      <Col span={24}>
-        <Row gutter={12}>
-          {citiesList.coords.map(city => (
-            <Col xs={24} sm={12} md={8} lg={6} xl={4} xxl={4}>
-              <WeCard />
-            </Col>
-          ))}
-        </Row>
-      </Col>
-    </Row>
+    <WePage pageTitle="City" pageSubTitle="List of cities">
+      <Row>
+        <Col span={24}>{/* <WeSearch /> */}</Col>
+        <Col span={24}>
+          <Row gutter={12}>
+            {citiesList.map(city => (
+              <Col xs={24} sm={12} md={8} lg={6} xl={4} xxl={4}>
+                <WeCard title={city.name} cardItem={city} />
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+    </WePage>
   );
 };
 

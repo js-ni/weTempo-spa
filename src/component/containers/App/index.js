@@ -23,15 +23,12 @@ import "./App.css";
 //#endregion
 //#region components
 import { Layouts, Cities } from "../";
-import { WePage } from "../../presentationals";
 //#endregion
 
 const App = () => {
   return (
     <Layouts>
-      <WePage>
-        <Route path="/" component={Cities}></Route>
-      </WePage>
+      <Route path="/" component={Cities}></Route>
     </Layouts>
   );
 };

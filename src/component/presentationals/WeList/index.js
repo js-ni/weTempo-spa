@@ -17,33 +17,26 @@ import PropTypes from "prop-types";
 //#endregion
 //#region antd
 import { List } from "antd";
-import {
-  CloudSyncOutlined,
-  CloudOutlined,
-  CloudUploadOutlined
-} from "@ant-design/icons";
+import { CloudSyncOutlined, HeatMapOutlined } from "@ant-design/icons";
 //#endregion
-const WeList = ({ alignment }) => {
+const WeList = ({ alignment, modelItem }) => {
   return (
     <List itemLayout={alignment}>
       <List.Item>
+        <HeatMapOutlined />
+        <span>{modelItem.cardinals}</span>
+      </List.Item>
+      <List.Item>
         <CloudSyncOutlined />
-        <span>42 kph</span>
-      </List.Item>
-      <List.Item>
-        <CloudOutlined />
-        <span>Sun info</span>
-      </List.Item>
-      <List.Item>
-        <CloudUploadOutlined />
-        <span>Temperature</span>
+        <span>{modelItem.winSpeed}</span>
       </List.Item>
     </List>
   );
 };
 
 WeList.propTypes = {
-  alignment: PropTypes.string
+  alignment: PropTypes.string,
+  dataList: PropTypes.object.isRequired
 };
 
 WeList.defaultProps = {
