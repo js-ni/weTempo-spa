@@ -1,0 +1,13 @@
+.we-card {
+  border: none !important;
+  box-shadow: 0px 0px 6px -4px $main-color;
+  border-radius: $card-border-radius !important;
+
+  .we-image {
+    border-radius: $card-border-radius !important;
+  }
+
+  .ant-card-actions {
+    border-radius: 0 0 10px 10px !important;
+  }
+}

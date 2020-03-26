@@ -26,7 +26,8 @@ import { CommentOutlined, NotificationOutlined } from "@ant-design/icons";
 const WeCard = ({ title, subTitle, description }) => {
   return (
     <Card
-      cover={<img alt="example" src={placeholderImg} />}
+      className="we-card"
+      cover={<img className="we-image" alt="example" src={placeholderImg} />}
       hoverable
       actions={[
         <Badge
