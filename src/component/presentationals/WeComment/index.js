@@ -19,7 +19,7 @@ import PropTypes from "prop-types";
 import placeholderImg from "../../../assets/img/placeholder.png";
 //#endregion
 
-const WeComment = ({ text }) => {
+const WeComment = ({ text, date }) => {
   return (
     <Comment
       actions={[]}
@@ -27,8 +27,8 @@ const WeComment = ({ text }) => {
       avatar={<Avatar src={placeholderImg} alt="User Photo" />}
       content={<p>{text}</p>}
       datetime={
-        <Tooltip title={moment().format("YYYY-MM-DD HH:mm:ss")}>
-          <span>{moment().fromNow()}</span>
+        <Tooltip title={moment(date).format("YYYY-MM-DD hh:mm:ss")}>
+          <span>{moment(date).fromNow()}</span>
         </Tooltip>
       }
     />
@@ -36,7 +36,8 @@ const WeComment = ({ text }) => {
 };
 
 WeComment.propTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  date: PropTypes.string
 };
 WeComment.defaultProps = {
   text: `We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.`

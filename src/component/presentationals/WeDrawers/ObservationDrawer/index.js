@@ -11,12 +11,28 @@
  */
 
 //#region lib
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 //#endregion
 //#region antd
-import { Form, Row, Col, Input, Statistic, Button } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+import {
+  Form,
+  Row,
+  Col,
+  Input,
+  Statistic,
+  Button,
+  PageHeader,
+  Switch,
+  Typography,
+  Alert
+} from "antd";
+import {
+  PlusOutlined,
+  CloseOutlined,
+  CheckOutlined,
+  SmileOutlined
+} from "@ant-design/icons";
 //#endregion
 //#region component
 import { ParentDrawer } from "../";
@@ -25,14 +41,29 @@ import { WeComment } from "../../";
 // #region common
 import { useStore } from "../../../../common/store";
 // #endregion
+//#region services
+import { ObservationsSvc } from "../../../../service/entities";
+//#endregion
 
 const { TextArea } = Input;
+const { Text } = Typography;
 
 const ObservationDrawer = ({
   showObservationDrawer,
   closeObservationDrawer
 }) => {
   const [{ citySelected }] = useStore();
+  const [observationsList, setObservations] = useState([]);
+  const [allObservationsView, setAllObservationsView] = useState(true);
+
+  useEffect(() => {
+    // TODO: remove this call instance as well as singleton pattern are implemented
+    const obserSvc = new ObservationsSvc();
+    obserSvc.all().then(resp => {
+      setObservations(resp);
+    });
+  }, []);
+
   return (
     <ParentDrawer
       title="Observations"
@@ -57,7 +88,7 @@ const ObservationDrawer = ({
               <TextArea placeholder="Please enter an observation" rows={4} />
             </Form.Item>
             <Form.Item>
-              <Button onClick={() => {}} type="primary" icon={<PlusOutlined />}>
+              <Button onClick={() => {}} type="dashed" icon={<PlusOutlined />}>
                 ADD
               </Button>
             </Form.Item>
@@ -66,14 +97,38 @@ const ObservationDrawer = ({
       </Form>
       <Row>
         <Col span={24}>
-          <WeComment />
+          <PageHeader
+            title="Observations"
+            subTitle={
+              <>
+                <Switch
+                  checkedChildren={<CheckOutlined />}
+                  unCheckedChildren={<CloseOutlined />}
+                  checked={allObservationsView}
+                  onChange={checked => setAllObservationsView(checked)}
+                />
+                {allObservationsView ? (
+                  <Text type="secondary">All Observations</Text>
+                ) : (
+                  <Text type="secondary">My Observations</Text>
+                )}
+              </>
+            }
+          />
+          {!allObservationsView && (
+            <Alert
+              icon={<SmileOutlined />}
+              message="This feature is on progress..."
+              type="info"
+              showIcon
+            />
+          )}
         </Col>
-        <Col span={24}>
-          <WeComment />
-        </Col>
-        <Col span={24}>
-          <WeComment />
-        </Col>
+        {observationsList.map(item => (
+          <Col key={item.uuid} span={24}>
+            <WeComment text={item.text} date={item.date} />
+          </Col>
+        ))}
       </Row>
     </ParentDrawer>
   );

@@ -1,5 +1,5 @@
 /**
- * @name Services/Cities
+ * @name Services/Observations
  * @memberof Entities
  * @type {Object}
  * @return {Object} List of cities services
@@ -8,18 +8,18 @@
  */
 // #region common
 import BaseService from "../common/baseService";
-import { citiesEnd } from "../common/endpoints";
+import { observationsEnd } from "../common/endpoints";
 // #endregion
 
-class CitiesService extends BaseService {
+class ObservationsService extends BaseService {
   /**
    * @function
    * @name all
-   * @memberof Services/Cities
-   * @description load all cities by filter options
+   * @memberof Services/Observations
+   * @description load all observations by filter options
    * @param {OBJECT} filter - Attributes for filtering info
    */
-  all = filter => this.get(citiesEnd.all, filter);
+  all = filter => this.get(observationsEnd.all, filter);
 }
 
-export default CitiesService;
+export default ObservationsService;
