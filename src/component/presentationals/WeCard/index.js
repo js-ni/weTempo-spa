@@ -27,7 +27,13 @@ const WeCard = ({ title, subTitle, description }) => {
   return (
     <Card
       className="we-card"
-      cover={<img className="we-image" alt="example" src={placeholderImg} />}
+      cover={
+        <img
+          className="we-image we-opacity--8"
+          alt="example"
+          src={placeholderImg}
+        />
+      }
       hoverable
       actions={[
         <Badge

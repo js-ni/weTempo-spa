@@ -23,10 +23,6 @@
 }
 
 .we-content-container {
-  //   background: linear-gradient(
-  //     $base-color-three 70%,
-  //     $base-color-two
-  //   ) !important;
   background: $base-color-three !important;
 }
 
@@ -37,6 +33,8 @@
   text-align: center;
   background: $base-color-three !important;
   background: linear-gradient($base-color-three, $base-color-two) !important;
+  padding: 18px 50px !important;
+  color: $main-color;
 }
 
 .we-page-content-container {

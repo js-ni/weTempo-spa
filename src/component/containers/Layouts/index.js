@@ -12,14 +12,20 @@
 
 //#region lib
 import React from "react";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Typography } from "antd";
 import PropTypes from "prop-types";
 //#endregion
 //#region assets
-import { HomeOutlined, Html5TwoTone, AppstoreTwoTone } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  Html5TwoTone,
+  AppstoreTwoTone,
+  GithubOutlined
+} from "@ant-design/icons";
 //#endregion
 
 const { Sider, Footer } = Layout;
+const { Text } = Typography;
 
 const Layouts = ({ children }) => {
   return (
@@ -35,8 +41,29 @@ const Layouts = ({ children }) => {
       <Layout className="we-content-container">
         {children}
         <Footer className="we-footer">
-          JsNi ©2018 <Html5TwoTone /> <AppstoreTwoTone /> Created by JsNi
-          contributors
+          <strong>JsNi</strong> ©2020 <Html5TwoTone /> <AppstoreTwoTone />{" "}
+          <a
+            href="https://github.com/clenondavis"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Text code>
+              <strong>
+                <GithubOutlined /> boykland/clenondavis
+              </strong>
+            </Text>
+          </a>
+          <a
+            href="https://github.com/js-ni"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Text code>
+              <strong>
+                <GithubOutlined /> Javascript Nicaragua
+              </strong>
+            </Text>
+          </a>
         </Footer>
       </Layout>
     </Layout>
