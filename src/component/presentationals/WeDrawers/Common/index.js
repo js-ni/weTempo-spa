@@ -32,7 +32,9 @@ const CommonDrawer = ({ children, title, showDrawer, closeDrawer }) => {
             textAlign: "right"
           }}
         >
-          <Button onClick={closeDrawer}>CANCEL</Button>
+          <Button onClick={closeDrawer} type="danger">
+            CANCEL
+          </Button>
         </div>
       }
     >

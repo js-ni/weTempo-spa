@@ -8,5 +8,6 @@
  */
 
 import * as drawerAction from "./drawers";
+import * as cityAction from "./city";
 
-export { drawerAction };
+export { drawerAction, cityAction };

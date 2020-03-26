@@ -15,12 +15,16 @@ import React from "react";
 import PropTypes from "prop-types";
 //#endregion
 //#region antd
-import { Form, Row, Col, Input, Statistic } from "antd";
+import { Form, Row, Col, Input, Statistic, Button } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 //#endregion
 //#region component
 import { ParentDrawer } from "../";
 import { WeComment } from "../../";
 //#endregion
+// #region common
+import { useStore } from "../../../../common/store";
+// #endregion
 
 const { TextArea } = Input;
 
@@ -28,6 +32,7 @@ const ObservationDrawer = ({
   showObservationDrawer,
   closeObservationDrawer
 }) => {
+  const [{ citySelected }] = useStore();
   return (
     <ParentDrawer
       title="Observations"
@@ -36,26 +41,37 @@ const ObservationDrawer = ({
     >
       <Row>
         <Col>
-          <Statistic title="Mexico, City" value={`12 kph`} />
+          <Statistic title={citySelected.name} value={citySelected.winSpeed} />
         </Col>
       </Row>
       <Form layout="vertical">
         <Row gutter={16}>
           <Col span={24}>
             <Form.Item
-              name="obsrevation"
+              name="observation"
               label="Observation"
               rules={[
                 { required: true, message: "Please enter an observation" }
               ]}
             >
-              <TextArea placeholder="Please enter an observation" rows={5} />
+              <TextArea placeholder="Please enter an observation" rows={4} />
+            </Form.Item>
+            <Form.Item>
+              <Button onClick={() => {}} type="primary" icon={<PlusOutlined />}>
+                ADD
+              </Button>
             </Form.Item>
           </Col>
         </Row>
       </Form>
       <Row>
-        <Col>
+        <Col span={24}>
+          <WeComment />
+        </Col>
+        <Col span={24}>
+          <WeComment />
+        </Col>
+        <Col span={24}>
           <WeComment />
         </Col>
       </Row>

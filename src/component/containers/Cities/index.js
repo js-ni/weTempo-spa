@@ -25,7 +25,7 @@ import { CitiesSvc } from "../../../service/entities";
 //#endregion
 // #region common
 import { useStore } from "../../../common/store";
-import { drawerAction } from "../../../common/actions";
+import { drawerAction, cityAction } from "../../../common/actions";
 // #endregion
 
 const Cities = () => {
@@ -33,6 +33,7 @@ const Cities = () => {
   const [{ openObservationDrawer }, dispatch] = useStore();
   const { showObservationDrawer } = drawerAction;
   const { ObservationDrawer } = WeDrawers;
+  const { setCitySelected } = cityAction;
 
   useEffect(() => {
     // TODO: remove this call instance as well as singleton pattern are implemented
@@ -42,8 +43,9 @@ const Cities = () => {
     });
   }, []);
 
-  const openObservDrawer = () => {
+  const openObservDrawer = citySelected => {
     dispatch(showObservationDrawer(true));
+    dispatch(setCitySelected(citySelected));
   };
 
   const closeObservDrawer = () => {
@@ -71,7 +73,7 @@ const Cities = () => {
                   title={city.name}
                   subTitle={city.winSpeed}
                   description={city.cardinals}
-                  onClickCard={openObservDrawer}
+                  onClickCard={() => openObservDrawer(city)}
                 />
               </Col>
             ))}
@@ -85,10 +87,12 @@ const Cities = () => {
           </Row>
         </Col>
         <Col span={24}>
-          <ObservationDrawer
-            showObservationDrawer={openObservationDrawer}
-            closeObservationDrawer={closeObservDrawer}
-          />
+          {openObservationDrawer && (
+            <ObservationDrawer
+              showObservationDrawer={openObservationDrawer}
+              closeObservationDrawer={closeObservDrawer}
+            />
+          )}
         </Col>
       </Row>
     </WePage>

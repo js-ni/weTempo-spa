@@ -6,7 +6,7 @@
  * @since v1.0.0
  * @author boyklan/clenondavis <clenondavis@outlook.com>
  */
-import { SHOW_OBSERVATION_DRAWER, HIDE_OBSERVATION_DRAWER } from "./types";
+import { SHOW_OBSERVATION_DRAWER } from "./types";
 
 /**
  * @function
@@ -19,16 +19,4 @@ import { SHOW_OBSERVATION_DRAWER, HIDE_OBSERVATION_DRAWER } from "./types";
 export const showObservationDrawer = openObservationDrawer => ({
   type: SHOW_OBSERVATION_DRAWER,
   openObservationDrawer
-});
-/**
- * @function
- * @name showObservationDrawer
- * @memberof DrawerAction
- * @description bolean control open and close drawer.
- * @param {BOOLEAN} openObservationDrawer  - reducer state
- * @return {OBJECT} Action context
- */
-export const closeObservationDrawer = hideObservationDrawer => ({
-  type: HIDE_OBSERVATION_DRAWER,
-  hideObservationDrawer
 });

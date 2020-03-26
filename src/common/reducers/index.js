@@ -7,6 +7,7 @@
  * @return {Object} List of reducers combined
  */
 import drawerReducer from "./drawer";
+import cityReducer from "./city";
 
 const createReducer = handlers => (state, action) => {
   if (!handlers.hasOwnProperty(action.type)) {
@@ -17,5 +18,6 @@ const createReducer = handlers => (state, action) => {
 };
 
 export default createReducer({
-  ...drawerReducer
+  ...drawerReducer,
+  ...cityReducer
 });
