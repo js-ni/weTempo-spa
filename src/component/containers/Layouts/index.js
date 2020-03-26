@@ -39,7 +39,7 @@ const Layouts = ({ children }) => {
       </Sider>
       <Layout className="we-content-container">
         {children}
-        <Footer>
+        <Footer className="we-footer">
           JsNi ©2018 <Html5TwoTone /> <AppstoreTwoTone /> Created by JsNi
           contributors
         </Footer>

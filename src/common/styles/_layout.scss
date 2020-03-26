@@ -1,5 +1,5 @@
 .we-layout {
-  min-height: 100vh;
+  min-height: 100vh !important;
 }
 
 .we-sider {
@@ -14,7 +14,7 @@
     .we-menu-item {
       padding: 0 15px !important;
       text-align: center;
-      background: $base-color-one !important;
+      background: $base-color-three !important;
       margin: 0 !important;
 
       &.ant-menu-item-selected {
@@ -25,5 +25,16 @@
 }
 
 .we-content-container {
-  background: $base-color-two !important;
+  background: $base-color-three !important;
+}
+
+.we-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.we-page-content-container {
+  padding: 0px 25px;
 }

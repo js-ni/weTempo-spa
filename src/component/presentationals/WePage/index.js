@@ -22,12 +22,10 @@ const { Content } = Layout;
 
 const WePage = ({ children, pageTitle, pageSubTitle }) => {
   return (
-    <div>
+    <>
       <PageHeader title={pageTitle} subTitle={pageSubTitle} />
-      <Content style={{ padding: 24 }}>
-        <div style={{ padding: 24, minHeight: 360 }}>{children}</div>
-      </Content>
-    </div>
+      <Content className="we-page-content-container">{children}</Content>
+    </>
   );
 };
 
