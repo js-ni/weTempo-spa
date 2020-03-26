@@ -21,12 +21,9 @@ import { Card, Badge } from "antd";
 import { CommentOutlined, NotificationOutlined } from "@ant-design/icons";
 //#endregion
 //#region components
-import { WeList } from "../";
 //#endregion
 
-const { Meta } = Card;
-
-const WeCard = ({ title, cardItem }) => {
+const WeCard = ({ title, subTitle, description }) => {
   return (
     <Card
       cover={<img alt="example" src={placeholderImg} />}
@@ -50,13 +47,16 @@ const WeCard = ({ title, cardItem }) => {
         </Badge>
       ]}
     >
-      <Meta title={title} description={<WeList modelItem={cardItem} />} />
+      <h2>{subTitle}</h2>
+      <h1>{title}</h1>
+      <p>{description}</p>
     </Card>
   );
 };
 
 WeCard.propTypes = {
   title: PropTypes.string.isRequired,
-  cardItem: PropTypes.object
+  subTitle: PropTypes.string,
+  description: PropTypes.string
 };
 export default WeCard;

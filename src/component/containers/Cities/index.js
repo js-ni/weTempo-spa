@@ -43,7 +43,11 @@ const Cities = () => {
           <Row gutter={12}>
             {citiesList.map(city => (
               <Col xs={24} sm={12} md={8} lg={6} xl={4} xxl={4}>
-                <WeCard title={city.name} cardItem={city} />
+                <WeCard
+                  title={city.name}
+                  subTitle={city.winSpeed}
+                  description={city.cardinals}
+                />
               </Col>
             ))}
             {citiesList.length === 0 && (
