@@ -15,7 +15,7 @@ import React, { useEffect, useState } from "react";
 // import PropTypes from "prop-types";
 //#endregion
 //#region antd
-import { Row, Col } from "antd";
+import { Row, Col, Empty, Spin } from "antd";
 //#endregion
 //#region components
 import { WeCard, WePage } from "../../presentationals";
@@ -46,6 +46,13 @@ const Cities = () => {
                 <WeCard title={city.name} cardItem={city} />
               </Col>
             ))}
+            {citiesList.length === 0 && (
+              <Col span={24}>
+                <Spin>
+                  <Empty />
+                </Spin>
+              </Col>
+            )}
           </Row>
         </Col>
       </Row>

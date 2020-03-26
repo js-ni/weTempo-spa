@@ -33,7 +33,7 @@ const WeCard = ({ title, cardItem }) => {
       hoverable
       actions={[
         <Badge
-          count={25}
+          count={0}
           onClick={() => {
             console.log("click on comment");
           }}
