@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 //#endregion
 //#region style
-import "./index.css";
+import "./index.scss";
 //#endregion
 //#region components
 import { App } from "./component/containers";

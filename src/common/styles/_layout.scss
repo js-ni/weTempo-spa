@@ -1,0 +1,29 @@
+.we-layout {
+  min-height: 100vh;
+}
+
+.we-sider {
+  background: $main-color !important;
+  max-width: 60px !important;
+  min-width: 60px !important;
+  width: 60px !important;
+
+  .we-menu {
+    width: auto;
+
+    .we-menu-item {
+      padding: 0 15px !important;
+      text-align: center;
+      background: $base-color-one !important;
+      margin: 0 !important;
+
+      &.ant-menu-item-selected {
+        color: inherit;
+      }
+    }
+  }
+}
+
+.we-content-container {
+  background: $base-color-two !important;
+}

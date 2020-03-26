@@ -42,7 +42,7 @@ const Cities = () => {
         <Col span={24}>
           <Row gutter={12}>
             {citiesList.map(city => (
-              <Col xs={24} sm={12} md={8} lg={6} xl={4} xxl={4}>
+              <Col key={city.name} xs={24} sm={12} md={8} lg={6} xl={4} xxl={4}>
                 <WeCard
                   title={city.name}
                   subTitle={city.winSpeed}
