@@ -15,11 +15,14 @@ import React from "react";
 import PropTypes from "prop-types";
 //#endregion
 //#region antd
-import { Form, Row, Col, Input } from "antd";
+import { Form, Row, Col, Input, Statistic } from "antd";
 //#endregion
 //#region component
 import { ParentDrawer } from "../";
+import { WeComment } from "../../";
 //#endregion
+
+const { TextArea } = Input;
 
 const ObservationDrawer = ({
   showObservationDrawer,
@@ -31,33 +34,31 @@ const ObservationDrawer = ({
       showDrawer={showObservationDrawer}
       closeDrawer={closeObservationDrawer}
     >
+      <Row>
+        <Col>
+          <Statistic title="Mexico, City" value={`12 kph`} />
+        </Col>
+      </Row>
       <Form layout="vertical">
         <Row gutter={16}>
-          <Col span={12}>
+          <Col span={24}>
             <Form.Item
-              name="name"
-              label="Name"
-              rules={[{ required: true, message: "Please enter user name" }]}
+              name="obsrevation"
+              label="Observation"
+              rules={[
+                { required: true, message: "Please enter an observation" }
+              ]}
             >
-              <Input placeholder="Please enter user name" />
-            </Form.Item>
-          </Col>
-          <Col span={12}>
-            <Form.Item
-              name="url"
-              label="Url"
-              rules={[{ required: true, message: "Please enter url" }]}
-            >
-              <Input
-                style={{ width: "100%" }}
-                addonBefore="http://"
-                addonAfter=".com"
-                placeholder="Please enter url"
-              />
+              <TextArea placeholder="Please enter an observation" rows={5} />
             </Form.Item>
           </Col>
         </Row>
       </Form>
+      <Row>
+        <Col>
+          <WeComment />
+        </Col>
+      </Row>
     </ParentDrawer>
   );
 };

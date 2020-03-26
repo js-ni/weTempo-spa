@@ -33,9 +33,6 @@ const CommonDrawer = ({ children, title, showDrawer, closeDrawer }) => {
           }}
         >
           <Button onClick={closeDrawer}>CANCEL</Button>
-          <Button onClick={closeDrawer} type="primary">
-            SAVE
-          </Button>
         </div>
       }
     >

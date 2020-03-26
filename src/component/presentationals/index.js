@@ -12,6 +12,7 @@ import WeSearch from "./WeSearch";
 import WeCard from "./WeCard";
 import WeList from "./WeList";
 import * as WeDrawers from "./WeDrawers";
+import WeComment from "./WeComment";
 //#endregion
 
-export { WePage, WeSearch, WeCard, WeList, WeDrawers };
+export { WePage, WeSearch, WeCard, WeList, WeDrawers, WeComment };
