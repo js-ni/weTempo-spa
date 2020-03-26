@@ -24,12 +24,7 @@ const { Sider, Footer } = Layout;
 const Layouts = ({ children }) => {
   return (
     <Layout className="we-layout">
-      <Sider
-        className="we-sider"
-        collapsed="true"
-        onCollapse={() => {}}
-        theme="light"
-      >
+      <Sider className="we-sider" collapsed="true" theme="light">
         <Menu className="we-menu" defaultSelectedKeys={["1"]} mode="inline">
           <Menu.Item className="we-menu-item" key="1">
             <HomeOutlined className="we-icon" />
