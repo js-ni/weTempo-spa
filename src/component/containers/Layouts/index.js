@@ -41,7 +41,7 @@ const Layouts = ({ children }) => {
       <Layout className="we-content-container">
         {children}
         <Footer className="we-footer">
-          <strong>JsNi</strong> ©2020 <Html5TwoTone /> <AppstoreTwoTone />{" "}
+          <strong>{`<JsNi />`}</strong> ©2020 <Html5TwoTone />{" "}
           <a
             href="https://github.com/clenondavis"
             rel="noopener noreferrer"
@@ -61,6 +61,29 @@ const Layouts = ({ children }) => {
             <Text code>
               <strong>
                 <GithubOutlined /> Javascript Nicaragua
+              </strong>
+            </Text>
+          </a>
+          <Text type="secondary">Repos</Text>
+          <a
+            href="https://github.com/js-ni/weTempo-spa"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Text code>
+              <strong>
+                <GithubOutlined /> SPA
+              </strong>
+            </Text>
+          </a>
+          <a
+            href="https://github.com/js-ni/weTempo-api"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Text code>
+              <strong>
+                <GithubOutlined /> API
               </strong>
             </Text>
           </a>
