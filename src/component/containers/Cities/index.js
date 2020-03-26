@@ -18,14 +18,21 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Empty, Spin } from "antd";
 //#endregion
 //#region components
-import { WeCard, WePage } from "../../presentationals";
+import { WeCard, WePage, WeDrawers } from "../../presentationals";
 //#endregion
 //#region services
 import { CitiesSvc } from "../../../service/entities";
 //#endregion
+// #region common
+import { useStore } from "../../../common/store";
+import { drawerAction } from "../../../common/actions";
+// #endregion
 
 const Cities = () => {
   const [citiesList, setCities] = useState([]);
+  const [{ openObservationDrawer }, dispatch] = useStore();
+  const { showObservationDrawer } = drawerAction;
+  const { ObservationDrawer } = WeDrawers;
 
   useEffect(() => {
     // TODO: remove this call instance as well as singleton pattern are implemented
@@ -34,6 +41,14 @@ const Cities = () => {
       setCities(resp);
     });
   }, []);
+
+  const openObservDrawer = () => {
+    dispatch(showObservationDrawer(true));
+  };
+
+  const closeObservDrawer = () => {
+    dispatch(showObservationDrawer(false));
+  };
 
   return (
     <WePage pageTitle="City" pageSubTitle="List of cities">
@@ -56,6 +71,7 @@ const Cities = () => {
                   title={city.name}
                   subTitle={city.winSpeed}
                   description={city.cardinals}
+                  onClickCard={openObservDrawer}
                 />
               </Col>
             ))}
@@ -67,6 +83,12 @@ const Cities = () => {
               </Col>
             )}
           </Row>
+        </Col>
+        <Col span={24}>
+          <ObservationDrawer
+            showObservationDrawer={openObservationDrawer}
+            closeObservationDrawer={closeObservDrawer}
+          />
         </Col>
       </Row>
     </WePage>

@@ -23,7 +23,7 @@ import { CommentOutlined, NotificationOutlined } from "@ant-design/icons";
 //#region components
 //#endregion
 
-const WeCard = ({ title, subTitle, description }) => {
+const WeCard = ({ title, subTitle, description, onClickCard }) => {
   return (
     <Card
       className="we-card"
@@ -35,6 +35,7 @@ const WeCard = ({ title, subTitle, description }) => {
         />
       }
       hoverable
+      onClick={onClickCard}
       actions={[
         <Badge
           count={0}
@@ -73,6 +74,10 @@ const WeCard = ({ title, subTitle, description }) => {
 WeCard.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  onClickCard: PropTypes.func
+};
+WeCard.defaultProps = {
+  onClickCard: () => {}
 };
 export default WeCard;

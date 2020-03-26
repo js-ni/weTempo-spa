@@ -16,12 +16,7 @@ import { Layout, Menu, Typography } from "antd";
 import PropTypes from "prop-types";
 //#endregion
 //#region assets
-import {
-  HomeOutlined,
-  Html5TwoTone,
-  AppstoreTwoTone,
-  GithubOutlined
-} from "@ant-design/icons";
+import { HomeOutlined, Html5TwoTone, GithubOutlined } from "@ant-design/icons";
 //#endregion
 
 const { Sider, Footer } = Layout;

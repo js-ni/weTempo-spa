@@ -12,11 +12,18 @@ import { App } from "./component/containers";
 //#region services
 import * as serviceWorker from "./serviceWorker";
 //#endregion
+//#region common
+import { StoreProvider } from "./common/store";
+import initialsStates from "./common/states";
+import reducers from "./common/reducers";
+//#endregion
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <StoreProvider initialState={initialsStates} reducer={reducers}>
+    <Router>
+      <App />
+    </Router>
+  </StoreProvider>,
   document.getElementById("root")
 );
 
