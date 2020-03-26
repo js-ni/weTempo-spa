@@ -3,5 +3,48 @@
     &--10 {
       margin-bottom: 10px;
     }
+
+    &--15 {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.we-text {
+  &--xg {
+    font-size: 3em;
+  }
+  &--md {
+    font-size: 1em;
+  }
+  &--sm {
+    font-size: 0.8em;
+  }
+}
+
+.we-align {
+  &--center {
+    text-align: center;
+  }
+}
+
+.we-fnt-we {
+  &--100 {
+    font-weight: 100 !important;
+  }
+}
+
+.we-opacity {
+  &--6 {
+    opacity: 0.6;
+  }
+  &--8 {
+    opacity: 0.8;
+  }
+}
+
+.we-color {
+  &--main {
+    color: $main-color !important;
   }
 }

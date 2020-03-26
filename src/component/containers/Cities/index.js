@@ -40,10 +40,10 @@ const Cities = () => {
       <Row>
         <Col span={24}>{/* <WeSearch /> */}</Col>
         <Col span={24}>
-          <Row gutter={12}>
+          <Row gutter={18}>
             {citiesList.map(city => (
               <Col
-                className="we-mr--b--10"
+                className="we-mr--b--15"
                 key={city.name}
                 xs={24}
                 sm={12}

@@ -3,11 +3,32 @@
   box-shadow: 0px 0px 6px -4px $main-color;
   border-radius: $card-border-radius !important;
 
-  .we-image {
-    border-radius: $card-border-radius !important;
-  }
-
   .ant-card-actions {
     border-radius: 0 0 10px 10px !important;
+    border: none !important;
+    background: linear-gradient(
+      $base-color-three 10%,
+      $card-action-bg-color
+    ) !important;
+  }
+
+  .ant-card-body {
+    padding: 10px;
+  }
+
+  .we-image {
+    border-radius: 10px 10px 0 0 !important;
+  }
+
+  .we-title {
+    margin: 0;
+    padding: 0;
+    color: $main-color;
+  }
+
+  .we-description {
+    .we-text {
+      color: $main-color !important;
+    }
   }
 }

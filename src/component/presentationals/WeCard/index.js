@@ -48,9 +48,18 @@ const WeCard = ({ title, subTitle, description }) => {
         </Badge>
       ]}
     >
-      <h2>{subTitle}</h2>
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <h2 className="we-title we-opacity--6 we-align--center we-fnt-we--100">
+        <span className="we-text we-text--xg">
+          {subTitle.replace("kph", "")}
+        </span>
+        <span className="we-text we-text--sm">Kph</span>
+      </h2>
+      <h1 className="we-title we-align--center we-opacity--8 we-color--main">
+        <span className="we-text we-text--md">{title}</span>
+      </h1>
+      <p className="we-description we-align--center we-opacity--6">
+        <span className="we-text we-text--sm">{description}</span>
+      </p>
     </Card>
   );
 };

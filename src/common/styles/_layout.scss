@@ -23,10 +23,11 @@
 }
 
 .we-content-container {
-  background: linear-gradient(
-    $base-color-three 70%,
-    $base-color-two
-  ) !important;
+  //   background: linear-gradient(
+  //     $base-color-three 70%,
+  //     $base-color-two
+  //   ) !important;
+  background: $base-color-three !important;
 }
 
 .we-footer {
@@ -35,7 +36,7 @@
   width: 100%;
   text-align: center;
   background: $base-color-three !important;
-  background: linear-gradient($base-color-two, $base-color-three) !important;
+  background: linear-gradient($base-color-three, $base-color-two) !important;
 }
 
 .we-page-content-container {
