@@ -59,7 +59,7 @@ const Layouts = ({ children }) => {
               </strong>
             </Text>
           </a>
-          <Text type="secondary">Repos</Text>
+          <Text type="secondary">/ Repos </Text>
           <a
             href="https://github.com/js-ni/weTempo-spa"
             rel="noopener noreferrer"

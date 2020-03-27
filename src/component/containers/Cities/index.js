@@ -72,7 +72,7 @@ const Cities = () => {
                 <WeCard
                   title={city.name}
                   subTitle={city.winSpeed}
-                  description={city.cardinals}
+                  description={city.cardinal}
                   onClickCard={() => openObservDrawer(city)}
                 />
               </Col>

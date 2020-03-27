@@ -13,6 +13,7 @@
 //#region lib
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 //#endregion
 //#region antd
 import {
@@ -55,14 +56,56 @@ const ObservationDrawer = ({
   const [{ citySelected }] = useStore();
   const [observationsList, setObservations] = useState([]);
   const [allObservationsView, setAllObservationsView] = useState(true);
+  const [observationText, setObservationText] = useState("");
 
   useEffect(() => {
     // TODO: remove this call instance as well as singleton pattern are implemented
+    loadInitialData();
+    setObservationText("");
+  }, []);
+
+  const inputHandler = e => {
+    const {
+      target: { value, name: fieldName }
+    } = e;
+
+    switch (fieldName) {
+      case "observationText":
+        setObservationText(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const loadInitialData = () => {
     const obserSvc = new ObservationsSvc();
     obserSvc.all().then(resp => {
       setObservations(resp);
     });
-  }, []);
+  };
+
+  const addNewObservation = () => {
+    const obserSvc = new ObservationsSvc();
+
+    // TODO: add dinamic service for user id added in the observation
+    const modelToSend = {
+      city: {
+        flagUrl: `${moment()}`,
+        name: citySelected.name,
+        cardinal: citySelected.cardinal,
+        winSpeed: citySelected.winSpeed
+      },
+      observation: {
+        text: observationText,
+        userId: 1 // This will change in next release
+      }
+    };
+    obserSvc.add(modelToSend).then(resp => {
+      // setObservationText("");
+      loadInitialData();
+    });
+  };
 
   return (
     <ParentDrawer
@@ -85,10 +128,20 @@ const ObservationDrawer = ({
                 { required: true, message: "Please enter an observation" }
               ]}
             >
-              <TextArea placeholder="Please enter an observation" rows={4} />
+              <TextArea
+                name="observationText"
+                placeholder="Please enter an observation"
+                rows={4}
+                onChange={inputHandler}
+                value={observationText}
+              />
             </Form.Item>
             <Form.Item>
-              <Button onClick={() => {}} type="dashed" icon={<PlusOutlined />}>
+              <Button
+                onClick={addNewObservation}
+                type="dashed"
+                icon={<PlusOutlined />}
+              >
                 ADD
               </Button>
             </Form.Item>

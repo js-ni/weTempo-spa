@@ -20,6 +20,19 @@ class ObservationsService extends BaseService {
    * @param {OBJECT} filter - Attributes for filtering info
    */
   all = filter => this.get(observationsEnd.all, filter);
+  /**
+   * @function
+   * @name add
+   * @memberof Services/Observations
+   * @description add an observations to a city
+   * @param {OBJECT} filter - Attributes for filtering info
+   */
+  add = data =>
+    this.post(observationsEnd.all, {
+      model: {
+        ...data
+      }
+    });
 }
 
 export default ObservationsService;

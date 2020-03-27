@@ -12,20 +12,35 @@
 //#region lib
 import React from "react";
 import moment from "moment";
-import { Comment, Avatar, Tooltip } from "antd";
+import { Comment, Avatar, Tooltip, Statistic, Typography } from "antd";
 import PropTypes from "prop-types";
 //#endregion
 //#region assets
 import placeholderImg from "../../../assets/img/placeholder.png";
 //#endregion
 
-const WeComment = ({ text, date }) => {
+const { Text } = Typography;
+
+const WeComment = ({ text, date, statistic }) => {
   return (
     <Comment
       actions={[]}
-      author={<span>User Name</span>}
+      author={<span>boykland/clenondavis</span>}
       avatar={<Avatar src={placeholderImg} alt="User Photo" />}
-      content={<p>{text}</p>}
+      content={
+        <>
+          <Statistic
+            title={
+              <>
+                <Text type="secondary">City Title, Country</Text>
+                <Text type="warning"> *Feature is on progress</Text>
+              </>
+            }
+            value={"0 Kph"}
+          />
+          <p>{text}</p>
+        </>
+      }
       datetime={
         <Tooltip title={moment(date).format("YYYY-MM-DD hh:mm:ss")}>
           <span>{moment(date).fromNow()}</span>
@@ -37,9 +52,8 @@ const WeComment = ({ text, date }) => {
 
 WeComment.propTypes = {
   text: PropTypes.string.isRequired,
+  statistic: PropTypes.object,
   date: PropTypes.string
 };
-WeComment.defaultProps = {
-  text: `We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.`
-};
+WeComment.defaultProps = {};
 export default WeComment;
