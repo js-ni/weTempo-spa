@@ -15,7 +15,7 @@ import React from "react";
 import { Layout, PageHeader } from "antd";
 import PropTypes from "prop-types";
 //#endregion
-//#region assets
+//#region material
 //#endregion
 
 const { Content } = Layout;

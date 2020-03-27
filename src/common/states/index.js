@@ -9,8 +9,12 @@
 
 // #region states
 import drawerStates from "./drawerState";
+import cityStates from "./cityState";
+import globalStates from "./globalStates";
 // #endregion
 
 export default {
-  ...drawerStates
+  ...drawerStates,
+  ...cityStates,
+  ...globalStates
 };

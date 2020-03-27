@@ -61,7 +61,8 @@ class BaseService {
           // TODO: set token implementation, as headers parametes
           .set(this._getHeaders(this.defaultHeaders, headers))
           .then(resp => resp)
-          .catch(err => err)
+          .then(resp => resp.body)
+          .catch(err => ({ err }))
       );
     } catch (err) {
       return err;
