@@ -26,23 +26,21 @@ import { CitiesSvc } from "../../../service/entities";
 // #region common
 import { useStore } from "../../../common/store";
 import { drawerAction, cityAction } from "../../../common/actions";
+import { CityHk } from "../../../service/hooks";
 // #endregion
 
+const { useAllCitiesFromScrapp } = CityHk;
+
 const Cities = () => {
-  const [citiesList, setCities] = useState([]);
-  const [{ openObservationDrawer }, dispatch] = useStore();
+  // const [citiesList, setCities] = useState([]);
+  const [
+    { openObservationDrawer, isShowLoadingProgress },
+    dispatch
+  ] = useStore();
   const { showObservationDrawer } = drawerAction;
   const { ObservationDrawer } = WeDrawers;
   const { setCitySelected } = cityAction;
-
-  useEffect(() => {
-    // TODO: remove this call instance as well as singleton pattern are implemented
-    const citiesSvc = new CitiesSvc();
-    citiesSvc.all().then(resp => {
-      console.log("resp from ALL CIty", resp);
-      // setCities(resp);
-    });
-  }, []);
+  const [{ citiesList }] = useAllCitiesFromScrapp();
 
   const openObservDrawer = citySelected => {
     dispatch(showObservationDrawer(true));
@@ -78,7 +76,12 @@ const Cities = () => {
                 />
               </Col>
             ))}
-            {citiesList.length === 0 && (
+            {citiesList.length === 0 && !isShowLoadingProgress && (
+              <Col span={24}>
+                <Empty />
+              </Col>
+            )}
+            {isShowLoadingProgress && (
               <Col span={24}>
                 <Spin>
                   <Empty />

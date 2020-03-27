@@ -48,18 +48,22 @@ class BaseService {
    * @param {OBJECT} headers Specific headers to be sent in a request.
    * @return {OBJECT} Response sent by the API.
    */
-  async get(url, query, moduleView, isList, headers) {
+  get(url, query, moduleView, isList, headers) {
     try {
-      return await request
-        .get(url)
-        .query(query)
-        .timeout({
-          response: 5000, // Wait 5 seconds for the server to start sending,
-          deadline: 60000 // but allow 1 minute for the file to finish loading.
-        })
-        // TODO: set token implementation, as headers parametes
-        .set(this._getHeaders(this.defaultHeaders, headers));
-      // return response.body;
+      return (
+        request
+          .get(url)
+          .query(query)
+          .timeout({
+            response: 60000, // Wait 10 seconds for the server to start sending,
+            deadline: 60000 // but allow 10 seconds for the file to finish loading.
+          })
+          // TODO: set token implementation, as headers parametes
+          .set(this._getHeaders(this.defaultHeaders, headers))
+          .then(resp => resp)
+          .then(resp => resp.body)
+          .catch(err => ({ err }))
+      );
     } catch (err) {
       return err;
     }

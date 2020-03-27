@@ -13,6 +13,7 @@
 //#region lib
 import React from "react";
 import { Route } from "react-router-dom";
+import { SnackbarProvider } from "notistack";
 //#endregion
 //#region styles
 // TODO: migrate to materializecss
@@ -27,9 +28,17 @@ import { Layouts, Cities } from "../";
 
 const App = () => {
   return (
-    <Layouts>
-      <Route path="/" component={Cities}></Route>
-    </Layouts>
+    <SnackbarProvider
+      maxSnack={3}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right"
+      }}
+    >
+      <Layouts>
+        <Route path="/" component={Cities}></Route>
+      </Layouts>
+    </SnackbarProvider>
   );
 };
 

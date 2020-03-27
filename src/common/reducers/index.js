@@ -8,6 +8,7 @@
  */
 import drawerReducer from "./drawer";
 import cityReducer from "./city";
+import globalReducer from "./global";
 
 const createReducer = handlers => (state, action) => {
   if (!handlers.hasOwnProperty(action.type)) {
@@ -19,5 +20,6 @@ const createReducer = handlers => (state, action) => {
 
 export default createReducer({
   ...drawerReducer,
-  ...cityReducer
+  ...cityReducer,
+  ...globalReducer
 });
