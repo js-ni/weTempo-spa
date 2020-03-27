@@ -50,12 +50,16 @@ class BaseService {
    */
   async get(url, query, moduleView, isList, headers) {
     try {
-      const response = await request
+      return await request
         .get(url)
         .query(query)
+        .timeout({
+          response: 5000, // Wait 5 seconds for the server to start sending,
+          deadline: 60000 // but allow 1 minute for the file to finish loading.
+        })
         // TODO: set token implementation, as headers parametes
         .set(this._getHeaders(this.defaultHeaders, headers));
-      return response.body;
+      // return response.body;
     } catch (err) {
       return err;
     }
