@@ -176,6 +176,30 @@ const ObservationDrawer = ({
               showIcon
             />
           )}
+          <p className="we-mr--0">
+            <Text type="warning" code>
+              {" "}
+              *TODO:
+            </Text>
+          </p>
+          <p className="we-mr--0">
+            <Text type="warning" code>
+              {" "}
+              1. Clean field after adding observation
+            </Text>
+          </p>
+          <p className="we-mr--0">
+            <Text type="warning" code>
+              {" "}
+              2. Add dinamic city statistic
+            </Text>
+          </p>
+          <p className="we-mr--0">
+            <Text type="warning" code>
+              {" "}
+              3. Add dinamic user photo
+            </Text>
+          </p>
         </Col>
         {observationsList.map(item => (
           <Col key={item.uuid} span={24}>

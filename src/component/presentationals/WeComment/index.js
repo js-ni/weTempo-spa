@@ -30,12 +30,7 @@ const WeComment = ({ text, date, statistic }) => {
       content={
         <>
           <Statistic
-            title={
-              <>
-                <Text type="secondary">City Title, Country</Text>
-                <Text type="warning"> *Feature is on progress</Text>
-              </>
-            }
+            title={<Text type="secondary">City Title, Country </Text>}
             value={"0 Kph"}
           />
           <p>{text}</p>
