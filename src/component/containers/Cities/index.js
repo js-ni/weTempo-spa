@@ -39,7 +39,8 @@ const Cities = () => {
     // TODO: remove this call instance as well as singleton pattern are implemented
     const citiesSvc = new CitiesSvc();
     citiesSvc.all().then(resp => {
-      setCities(resp);
+      console.log("resp from ALL CIty", resp);
+      // setCities(resp);
     });
   }, []);
 
