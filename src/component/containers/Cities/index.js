@@ -38,10 +38,13 @@ const Cities = () => {
   useEffect(() => {
     // TODO: remove this call instance as well as singleton pattern are implemented
     const citiesSvc = new CitiesSvc();
-    citiesSvc.all().then(resp => {
-      console.log("resp from ALL CIty", resp);
-      // setCities(resp);
-    });
+    citiesSvc
+      .all()
+      .then(resp => {
+        console.log("resp from ALL CIty", resp);
+        // setCities(resp);
+      })
+      .catch(err => console.log("err from ALL CIty", err));
   }, []);
 
   const openObservDrawer = citySelected => {
