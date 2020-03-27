@@ -9,5 +9,6 @@
 
 import * as drawerAction from "./drawers";
 import * as cityAction from "./city";
+import * as globalAction from "./global";
 
-export { drawerAction, cityAction };
+export { drawerAction, cityAction, globalAction };
